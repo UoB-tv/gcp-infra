@@ -1,0 +1,31 @@
+{
+    "variables": {
+        "key_file": "{{env `KEYFILE`}}"
+    },
+    "builders": [
+        {
+            "type" : "googlecompute",
+            "account_file": "{{user `key_file`}}",
+            "project_id": "uob-tv-project-dev",
+            "source_image_family": "ubuntu-1804-lts",
+            "ssh_username": "packer",
+            "zone": "europe-west2-c",
+            "disk_size": "15",
+            "machine_type": "g1-small",
+            "image_family": "uob-tv-ubuntu-18",
+            "image_name": "jenkins-master-{{timestamp}}",
+            "scopes": [
+                "https://www.googleapis.com/auth/userinfo.email",
+                "https://www.googleapis.com/auth/compute",
+                "https://www.googleapis.com/auth/devstorage.full_control"
+            ],
+            "service_account_email": "terraform@uob-tv-project-dev.iam.gserviceaccount.com"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "install_jenkins.sh"
+        }
+    ]
+}
