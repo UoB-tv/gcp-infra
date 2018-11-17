@@ -1,6 +1,6 @@
 variable "name" {
     description = "Name to be used for Jenkins master"
-    default = "jenkins-master-1"
+    default = "vpn-server-1"
 }
 
 variable "machine-type" {
@@ -13,12 +13,4 @@ variable "machine-image" {
 
 variable "zone" {
     default = "europe-west2-a"
-}
-
-variable "dns-domain" {
-    default = "jenkins.internal.uob.tv"
-}
-
-variable "dns-zone" {
-    default = "uob-tv-dns-zone"
 }

@@ -27,6 +27,9 @@ resource "google_project_services" "project" {
     "storage-api.googleapis.com",
     "cloudapis.googleapis.com",
     "clouderrorreporting.googleapis.com",
-    "servicemanagement.googleapis.com"
+    "servicemanagement.googleapis.com",
+    "cloudfunctions.googleapis.com",
+    "dns.googleapis.com",
+    "iap.googleapis.com"
   ]
 }
