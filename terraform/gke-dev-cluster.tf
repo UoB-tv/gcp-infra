@@ -7,7 +7,8 @@ resource "google_container_node_pool" "pool_1" {
         min_node_count = 1
         max_node_count = 5
     }
-    initial_node_count = 1
+
+    initial_node_count = 0
 
     node_config {
         preemptible = false
@@ -15,9 +16,10 @@ resource "google_container_node_pool" "pool_1" {
 
         oauth_scopes = [
             "compute-rw",
-            "storage-ro",
+            "storage-rw",
             "logging-write",
             "monitoring",
+            "pubsub"
         ]
         disk_size_gb = 30
     }

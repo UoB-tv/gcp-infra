@@ -4,6 +4,11 @@ provider "google" {
   region      = "${var.region}"
 }
 
+provider "kubernetes" {
+  config_context_cluster = "gke_uob-tv-project-dev_europe-west2-a_dev-cluster-1"
+  config_context_auth_info = "gke_uob-tv-project-dev_europe-west2-a_dev-cluster-1"
+}
+
 resource "google_project_services" "project" {
   project = "${var.project_id}"
   services = [
@@ -30,6 +35,8 @@ resource "google_project_services" "project" {
     "servicemanagement.googleapis.com",
     "cloudfunctions.googleapis.com",
     "dns.googleapis.com",
-    "iap.googleapis.com"
+    "iap.googleapis.com",
+    "iam.googleapis.com",
+    "iamcredentials.googleapis.com"
   ]
 }

@@ -8,7 +8,9 @@ variable "zone" {
 
 variable "credentials" {}
 
-variable "project_id" {}
+variable "project_id" {
+    default = "uob-tv-project-dev"
+}
 
 variable "gke_zone" {
     default="europe-west2-a"
