@@ -94,7 +94,7 @@ resource "google_service_account_key" "video-proc-sa-key" {
 
 resource "kubernetes_secret" "video-proc-sa-credential" {
     metadata {
-        name = "google-application-credentials"
+        name = "video-proc-sa-credential"
     }
     data {
         credentials.json = "${base64decode(google_service_account_key.video-proc-sa-key.private_key)}"
