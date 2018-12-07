@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name:  video-proc-streaming
   labels:
-    istio-injection: enabled
+    istio-injection: disabled
