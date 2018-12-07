@@ -82,6 +82,13 @@ data "google_iam_policy" "video-proc-sa-policy" {
             "serviceAccount:${data.google_service_account.video-proc-service-account.email}"
         ]
     }
+
+    binding {
+        role = "roles/pubsub.publisher",
+        members = [
+            "serviceAccount:${data.google_service_account.video-proc-service-account.email}"
+        ]
+    }
 }
 
 output "video-proc-sa-email" {
