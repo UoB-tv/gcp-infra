@@ -19,6 +19,7 @@ resource "google_storage_bucket_acl" "uob-tv-videos-store-acl" {
 }
 
 
+
 /*
     uob-tv-videos-public-store contains all public videos which have
     been transcoded.
@@ -44,6 +45,24 @@ resource "google_storage_default_object_acl" "uob-tv-videos-public-default-acl" 
     bucket = "${google_storage_bucket.uob-tv-videos-public-store.name}"
     role_entity = [
         "READER:allUsers",
+    ]
+}
+
+resource "google_storage_bucket_iam_binding" "uob-video-public-store-viewer-binding" {
+    bucket = "${google_storage_bucket.uob-tv-videos-public-store.name}"
+    role        = "roles/storage.legacyBucketReader"
+
+    members = [
+        "serviceAccount:${data.google_service_account.video-proc-service-account.email}",
+    ]
+}
+
+resource "google_storage_bucket_iam_binding" "uob-video-public-store-writer-binding" {
+    bucket = "${google_storage_bucket.uob-tv-videos-public-store.name}"
+    role        = "roles/storage.legacyBucketWriter"
+
+    members = [
+        "serviceAccount:${data.google_service_account.video-proc-service-account.email}",
     ]
 }
 

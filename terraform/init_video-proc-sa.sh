@@ -4,8 +4,8 @@
 PROJECT_ID=uob-tv-project-dev
 VIDEO_PROC_SA=video-proc-sa
 
-gcloud iam service-accounts create terraform \
-  --display-name "Video Processing Service Account"
+#gcloud iam service-accounts create video-proc-sa \
+#  --display-name "Video Processing Service Account"
 
 gcloud projects add-iam-policy-binding ${PROJECT_ID} \
   --member serviceAccount:${VIDEO_PROC_SA}@${PROJECT_ID}.iam.gserviceaccount.com \
