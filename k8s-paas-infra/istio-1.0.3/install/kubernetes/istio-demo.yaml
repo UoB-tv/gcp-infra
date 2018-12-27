@@ -12573,6 +12573,11 @@ spec:
       name: http2-grafana
       port: 15031
       targetPort: 15031
+    -
+      name: rtmp
+      nodePort: 31410
+      port: 1935
+      targetPort: 1935
 ---
 
 ---

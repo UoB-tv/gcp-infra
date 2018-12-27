@@ -11,9 +11,8 @@ resource "google_container_node_pool" "pool_1" {
     initial_node_count = 0
 
     node_config {
-        preemptible = false
+        preemptible = true
         machine_type = "n1-standard-1"
-
         oauth_scopes = [
             "compute-rw",
             "storage-rw",

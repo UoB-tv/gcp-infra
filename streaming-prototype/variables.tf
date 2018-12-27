@@ -1,12 +1,14 @@
 variable "region" {
-    default="europe-west2"
+    default="europe-west-2"
 }
 #GCP London region
 variable "zone" {
     default="europe-west2-a"
 }
 
-variable "credentials" {}
+variable "credentials" {
+    
+}
 
 variable "project_id" {
     default = "uob-tv-project-dev"

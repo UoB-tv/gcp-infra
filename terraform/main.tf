@@ -37,6 +37,8 @@ resource "google_project_services" "project" {
     "dns.googleapis.com",
     "iap.googleapis.com",
     "iam.googleapis.com",
-    "iamcredentials.googleapis.com"
+    "iamcredentials.googleapis.com",
+    "bigtable.googleapis.com",
+    "servicenetworking.googleapis.com"
   ]
 }
